@@ -1,1 +1,25 @@
-Hi  hartsh
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to App Store</title>
+    <script>
+        // Detect OS and redirect
+        function redirect() {
+            const isAndroid = /android/i.test(navigator.userAgent);
+            const isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+            // Replace URLs with your app store links
+            const androidStore = "https://play.google.com/store/apps/details?id=au.com.restoplus.texas";
+            const iOSStore = "https://apps.apple.com/au/app/texas-diner/id1497089073";
+            const fallback = "https://orders.restoplus.com/restaurants/nb4qcbf3n/stores/nhqcbf59"; // Optional fallback
+
+            if (isAndroid) window.location.replace(androidStore);
+            else if (isiOS) window.location.replace(iOSStore);
+            else window.location.replace(fallback); // For other devices
+        }
+    </script>
+</head>
+<body onload="redirect()">
+    <p>Redirecting to app store... If not redirected, <a href="#" onclick="redirect()">click here</a>.</p>
+</body>
+</html>
